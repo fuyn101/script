@@ -26,7 +26,7 @@ jobs:
       - name: Create Release and Upload Release Asset
         uses: softprops/action-gh-release@v1
         with:
-          token: ${{ secrets.CUSTOM_GITHUB_TOKEN }}
+          token: ${{ secrets.MY_KEY }}
           name: Release v1.0
           body: TODO New Release.
           draft: false
