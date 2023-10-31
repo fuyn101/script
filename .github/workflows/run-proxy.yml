@@ -1,9 +1,14 @@
-name: Proxy Configuration  
+name: Proxy Configuration
+
 on:
-  push:
-    # Sequence of patterns matched against refs/tags
-    tags:
-      - "v1.0"
+  workflow_dispatch: # 当手动触发时执行
+  schedule:
+    - cron: '0 0 * * *' # 每天的UTC时间午夜触发，您可以根据需要修改
+
+
+
+
+
 
 jobs:  
   build:  
@@ -18,11 +23,13 @@ jobs:
         run: |  
           python proxy.py  
 
-      - uses: "marvinpinto/action-automatic-releases@latest"
+      - name: Create Release and Upload Release Asset
+        uses: softprops/action-gh-release@v1
         with:
-          repo_token: "${{ secrets.Proxy_key }}"
-          automatic_release_tag: "latest"
-          prerelease: true
-          title: "Development Build"
+          tag_name: v1.0
+          name: Release v1.0
+          body: TODO New Release.
+          draft: false
+          prerelease: false
           files: |
             proxy.json
