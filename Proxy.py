@@ -1,6 +1,8 @@
 import json
 import subprocess
+import sys
 
+sys.stdout.reconfigure(encoding="utf-8")
 # 定义字典
 data = {
     "group": "job",
@@ -22,9 +24,9 @@ data = {
 json_data = json.dumps(data, indent=4)
 output_data = "config.json"
 # 将JSON数据写入文件
-with open(output_data, "w") as json_file:
+with open(output_data, "w", encoding="utf-8") as json_file:
     json_file.write(json_data)
-print("JSON文件已生成。")
+print("JSONOK")
 # cmd = f"lite.exe --config {output_data} --test {data['subscription']}"
 
 # process = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE)
@@ -41,5 +43,5 @@ for value in values:
         out_proxy = proxy
         proxy = out_proxy + value["link"] + "\n"
 
-with open("proxy.json", "w") as a:
+with open("proxy.json", "w", encoding="utf-8") as a:
     a.write(proxy)
