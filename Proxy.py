@@ -27,10 +27,10 @@ output_data = "config.json"
 with open(output_data, "w", encoding="utf-8") as json_file:
     json_file.write(json_data)
 print("JSONOK")
-# cmd = f"lite.exe --config {output_data} --test {data['subscription']}"
+cmd = f"lite.exe --config {output_data} --test {data['subscription']}"
 
-# process = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE)
-# process.communicate()
+process = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE)
+process.communicate()
 
 with open("output.json", "r", encoding="utf-8") as file:
     data = json.load(file)
