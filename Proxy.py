@@ -16,7 +16,7 @@ data = {
     "language": "en",
     "fontSize": 24,
     "theme": "rainbow",
-    "outputMode": 3,
+    "outputMode": 0,
     "unique": True,
 }
 
