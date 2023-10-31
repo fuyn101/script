@@ -1,0 +1,28 @@
+name: Proxy Configuration  
+on:
+  push:
+    # Sequence of patterns matched against refs/tags
+    tags:
+      - "v1.0"
+
+jobs:  
+  build:  
+    runs-on: windows-latest  
+    steps:  
+      - uses: actions/checkout@v3  
+      - uses: actions/setup-python@v4  
+        with:  
+          python-version: 3.10  
+
+      - name: Run proxy.py  
+        run: |  
+          python proxy.py  
+
+      - uses: "marvinpinto/action-automatic-releases@latest"
+        with:
+          repo_token: "${{ secrets.Proxy_key }}"
+          automatic_release_tag: "latest"
+          prerelease: true
+          title: "Development Build"
+          files: |
+            proxy.json
