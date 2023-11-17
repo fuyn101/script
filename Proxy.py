@@ -9,7 +9,7 @@ data = {
     "speedtestMode": "all",
     "pingMethod": "googleping",
     "sortMethod": "rspeed",
-    "concurrency": 2,
+    "concurrency": 200,
     "testMode": 2,
     "subscription": "https://ghproxy.com/https://raw.githubusercontent.com/Leon406/SubCrawler/main/sub/share/all3",
     "timeout": 16,
