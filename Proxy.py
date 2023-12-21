@@ -1,7 +1,7 @@
 import json
 import subprocess
 import sys
-
+import base64
 sys.stdout.reconfigure(encoding="utf-8")
 # 定义字典
 data = {
@@ -42,6 +42,16 @@ for value in values:
     if value["avg_speed"] > 1024 * 100:
         out_proxy = proxy
         proxy = out_proxy + value["link"] + "\n"
+import base64
 
-with open("proxy.json", "w", encoding="utf-8") as a:
-    a.write(proxy)
+def url_to_base64(url):
+    # 将链接转换为字节串
+    url_bytes = url.encode('utf-8')
+    
+    # 使用base64编码
+    base64_encoded = base64.b64encode(url_bytes)
+    
+    return base64_encoded.decode('utf-8')  # 将字节串转换为字符串并返回
+base64_encoded_url = url_to_base64(proxy)
+with open("proxy.txt", "w", encoding="utf-8") as a:
+    a.write(base64_encoded_url)
