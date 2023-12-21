@@ -11,7 +11,7 @@ data = {
     "sortMethod": "rspeed",
     "concurrency": 200,
     "testMode": 2,
-    "subscription": "https://ghproxy.com/https://raw.githubusercontent.com/Leon406/SubCrawler/main/sub/share/all3",
+    "subscription": "https://raw.githubusercontent.com/Leon406/SubCrawler/main/sub/share/all3",
     "timeout": 16,
     "language": "en",
     "fontSize": 24,
